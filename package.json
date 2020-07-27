@@ -1,0 +1,44 @@
+{
+  "name": "eleventy-classic-blog-starter",
+  "description": "A starter repository for a classic blog website using the Eleventy SSG",
+  "keywords": [
+    "eleventy",
+    "11ty",
+    "starter",
+    "gulp",
+    "tailwindcss"
+  ],
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": "Ben Michaud <ben@tigersway.net>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TigersWay/eleventy-classic-blog-starter.git"
+  },
+  "homepage": "https://github.com/TigersWay/eleventy-classic-blog-starter/#readme",
+  "scripts": {
+    "live": "gulp live",
+    "build": "gulp build"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^0.11.0",
+    "@11ty/eleventy-navigation": "^0.1.6",
+    "del": "^5.1.0",
+    "fast-glob": "^3.2.4",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-header": "^2.0.9",
+    "gulp-load-plugins": "^2.0.3",
+    "gulp-rename": "^2.0.0",
+    "highlight.js": "^10.1.2",
+    "markdown-it": "^11.0.0",
+    "markdown-it-attrs": "^3.0.3",
+    "markdown-it-emoji": "^1.4.0",
+    "markdown-it-link-attributes": "^3.0.0",
+    "moment": "^2.27.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.12"
+  }
+}

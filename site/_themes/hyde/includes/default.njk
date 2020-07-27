@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="{{ site.locale }}">
+{% include "head.njk" %}
+<body data-path="{{ page.filePathStem }}">
+
+{% include "sidebar.njk" %}
+
+  <div class="content container">
+{% block content %}{{ content | safe }}{% endblock %}
+  </div>
+
+  {% block Scripts -%}
+  <script src="/js/scripts.min.js"></script>
+  {%- endblock %}
+  {# <script>
+    [...document.getElementsByTagName('time')].forEach(el => {
+      el.innerHTML = new Date(el.getAttribute("datetime")).toLocaleDateString('');
+    });
+  </script> #}
+</body>
+</html>

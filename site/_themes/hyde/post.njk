@@ -1,0 +1,6 @@
+{% extends "default.njk" %}
+
+{% block content %}    <article class="post">
+      <h1 class="post-title">{{ title }}</h1>
+      <time class="post-date" datetime="{{date | dateISO }}">{{ date | dateFormat }}</time>
+{{ content | safe }}    </article>{% endblock %}

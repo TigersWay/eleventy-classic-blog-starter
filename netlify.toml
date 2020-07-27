@@ -1,0 +1,13 @@
+[build.environment]
+  NODE_ENV = "production"
+  NODE_VERSION = "12"
+
+[[headers]]
+  for = "*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
