@@ -2,4 +2,8 @@
 
 @import poole.css;
 @import hyde.css;
-/*@import syntax.css;*/
+
+/* Poole & Hyde default CSS does not pass today's lighthouse tests */
+
+a {color: #1a6091;}                             /* darken(#268bd2, 15%); */
+.post-date {color: #747474; font-size: 90%;}    /*  darken(#9a9a9a, 15%); */
