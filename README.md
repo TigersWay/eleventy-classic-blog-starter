@@ -3,10 +3,13 @@ A starter repository for a classic blog website using the Eleventy SSG.
 
 Of course, a very opiniated one, and a work in progress!
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0079108a-1e50-4c91-a5b7-d849710e0f0e/deploy-status)](https://app.netlify.com/sites/eleventy-classic-blog-starter/deploys)
+
 ## Tools
 
 - [Eleventy](https://www.11ty.dev/)
 - [Gulp](https://gulpjs.com/)
+- [highlight.js](https://highlightjs.org/)
 
 ## Themes
 

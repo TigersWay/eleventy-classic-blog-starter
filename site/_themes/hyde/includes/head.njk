@@ -1,7 +1,7 @@
 <head>
   <meta charset="utf-8">
-  <title>{{ title }}</title>
-  <meta name="description" content="{{ content | excerpt | safe }}">
+  <title>{{ title + ' | ' if title }}{{ site.title }}</title>
+  <meta name="description" content="{% if content %}{{ content | excerpt | safe }}{% else %}{{ site.tagline }}{% endif %}">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="shortcut icon" href="/images/favicon-32x32.png" sizes="32x32">

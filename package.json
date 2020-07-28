@@ -6,7 +6,8 @@
     "11ty",
     "starter",
     "gulp",
-    "tailwindcss"
+    "syntax-highlighting",
+    "highlight-js"
   ],
   "version": "0.1.0",
   "license": "MIT",
@@ -23,6 +24,7 @@
   "dependencies": {
     "@11ty/eleventy": "^0.11.0",
     "@11ty/eleventy-navigation": "^0.1.6",
+    "cheerio": "^1.0.0-rc.3",
     "del": "^5.1.0",
     "fast-glob": "^3.2.4",
     "gulp": "^4.0.2",
