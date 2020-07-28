@@ -69,7 +69,7 @@ module.exports = (eleventyConfig) => {
       return fileContent.replace(/(<article .*?data-input-path="(.*?)".*?>)([\s\S]*?)(<\/article>)/gim, (match, openingtag, inputPath, content, closingtag) => {
         let imagePath = inputPath.match(/(?:\/posts(\/\d{4}\/\d{2}\/)|\/pages\/)[^\/]*/);
         imagePath = (imagePath) ? (imagePath[1] ? imagePath[1] : '/') : '';
-        content = content.replace(/<img src="(.*?)" alt="(.*?)">/g, (match, src, alt) => {
+        content = content.replace(/<img src="(?!https?:\/\/)(.*?)" alt="(.*?)">/g, (match, src, alt) => {
           return `<img src="/images${imagePath}${src}" alt="${alt}">`;
         })
         return `${openingtag}${content}${closingtag}`;
