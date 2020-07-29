@@ -9,7 +9,7 @@
     "syntax-highlighting",
     "highlight-js"
   ],
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MIT",
   "author": "Ben Michaud <ben@tigersway.net>",
   "repository": {
@@ -24,6 +24,7 @@
   "dependencies": {
     "@11ty/eleventy": "^0.11.0",
     "@11ty/eleventy-navigation": "^0.1.6",
+    "@tigersway/gulp-responsive": "^1.1.0",
     "cheerio": "^1.0.0-rc.3",
     "del": "^5.1.0",
     "fast-glob": "^3.2.4",
@@ -32,7 +33,9 @@
     "gulp-concat": "^2.6.1",
     "gulp-header": "^2.0.9",
     "gulp-load-plugins": "^2.0.3",
+    "gulp-newer": "^1.4.0",
     "gulp-rename": "^2.0.0",
+    "gulp-vinyl-flow": "^1.1.0",
     "highlight.js": "^10.1.2",
     "markdown-it": "^11.0.0",
     "markdown-it-attrs": "^3.0.3",

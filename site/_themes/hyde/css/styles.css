@@ -7,3 +7,10 @@
 
 a {color: #1a6091;}                             /* darken(#268bd2, 15%); */
 .post-date {color: #747474; font-size: 90%;}    /*  darken(#9a9a9a, 15%); */
+.related-posts li small {color: #747474;}
+
+
+.sidebar-nav-item {line-height: 2.75;}
+@media (min-width: 48em) {
+  .sidebar-nav-item {line-height: 1.75;}
+}

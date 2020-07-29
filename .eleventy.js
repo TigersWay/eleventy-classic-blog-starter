@@ -64,13 +64,14 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addCollection('posts', (collectionApi) => collectionApi.getFilteredByGlob('site/posts/**/*.md'));
 
   // Transforms
+  const {suffix} = require('./_11ty/filters/rename.js');
   eleventyConfig.addTransform('async-transform-images', async (fileContent, outputPath, inputPath) => {
     if (outputPath.endsWith('.html')) {
       return fileContent.replace(/(<article .*?data-input-path="(.*?)".*?>)([\s\S]*?)(<\/article>)/gim, (match, openingtag, inputPath, content, closingtag) => {
         let imagePath = inputPath.match(/(?:\/posts(\/\d{4}\/\d{2}\/)|\/pages\/)[^\/]*/);
         imagePath = (imagePath) ? (imagePath[1] ? imagePath[1] : '/') : '';
         content = content.replace(/<img src="(?!https?:\/\/)(.*?)" alt="(.*?)">/g, (match, src, alt) => {
-          return `<img src="/images${imagePath}${src}" alt="${alt}">`;
+          return `<img src="${suffix(`/images${imagePath}${src}`, '-720x')}" alt="${alt}" srcset="${suffix(`/images${imagePath}${src}`, '-420x')} 420w, ${suffix(`/images${imagePath}${src}`, '-720x')} 720w">`;
         })
         return `${openingtag}${content}${closingtag}`;
       });
