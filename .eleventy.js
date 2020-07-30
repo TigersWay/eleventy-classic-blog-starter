@@ -71,7 +71,7 @@ module.exports = (eleventyConfig) => {
         let imagePath = inputPath.match(/(?:\/posts(\/\d{4}\/\d{2}\/)|\/pages\/)[^\/]*/);
         imagePath = (imagePath) ? (imagePath[1] ? imagePath[1] : '/') : '';
         content = content.replace(/<img src="(?!https?:\/\/)(.*?)" alt="(.*?)">/g, (match, src, alt) => {
-          return `<img src="${suffix(`/images${imagePath}${src}`, '-720x')}" alt="${alt}" srcset="${suffix(`/images${imagePath}${src}`, '-420x')} 420w, ${suffix(`/images${imagePath}${src}`, '-720x')} 720w">`;
+          return `<img src="${suffix(`/images${imagePath}${src}`, '-720x')}" alt="${alt}" srcset="${suffix(`/images${imagePath}${src}`, '-1440x')} 2x, ${suffix(`/images${imagePath}${src}`, '-2160x')} 3x">`;
         })
         return `${openingtag}${content}${closingtag}`;
       });

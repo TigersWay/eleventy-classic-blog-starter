@@ -59,33 +59,19 @@ const buildCSS = () => {
 const watchCSS = () => watch(`site/${theme}/css/styles.css`, buildCSS);
 
 
-// const buildImages = () => {
-//   let config = $.responsive.buildConfig(['**/*.{html,css}'], destPath);
-// console.dir(config, {depth: 3});
-//   return src('site/posts/**/*.{jpg,png}', {xcwd: '', xbase: 'images'})
-//     .pipe($.responsive(config))
-// //    .pipe($.newer(destPath))
-//     .pipe($.vinylFlow())
-//     .pipe(dest(destPath));
-// };
-function debug() {
-  var stream = arguments[0];
-
-  // put your desired debugging code here
-  console.log ("I like threesomes cause I'm the Man In The Middle!");
-
-  return stream;
-}
 const buildImages = () => {
   return src('site/posts/**/*.{jpg,png}')
     .pipe(src('site/pages/**/*.{jpg,png}'))
     .pipe($.responsive({
       '**/*': [{
-        resize: {width: 420},
-        rename: {suffix: '-420x'}
-      },{
         resize: {width: 720},
         rename: {suffix: '-720x'}
+      },{
+        resize: {width: 1440},
+        rename: {suffix: '-1440x'}
+      },{
+        resize: {width: 2160},
+        rename: {suffix: '-2160x'}
       }]
     }))
     .pipe($.newer(`${destPath}/images`))
