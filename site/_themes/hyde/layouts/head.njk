@@ -4,13 +4,13 @@
   <meta name="description" content="{% if content %}{{ content | excerpt | safe }}{% else %}{{ site.tagline }}{% endif %}">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <link rel="shortcut icon" href="/images/favicon-32x32.png" sizes="32x32">
-  <link rel="apple-touch-icon" href="/images/apple-touch-icon-180x180.png">
+  <link rel="shortcut icon" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  {% block CSS -%}
+  {% block CSS %}
   <link rel="stylesheet" href="/css/styles.min.css">
-  {%- endblock %}
+  {% endblock %}
 
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
 </head>

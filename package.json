@@ -7,9 +7,10 @@
     "starter",
     "gulp",
     "syntax-highlighting",
-    "highlight-js"
+    "highlight-js",
+    "hyde-theme"
   ],
-  "version": "0.2.0",
+  "version": "0.4.0",
   "license": "MIT",
   "author": "Ben Michaud <ben@tigersway.net>",
   "repository": {
@@ -19,7 +20,8 @@
   "homepage": "https://github.com/TigersWay/eleventy-classic-blog-starter/#readme",
   "scripts": {
     "live": "gulp live",
-    "build": "gulp build"
+    "build": "gulp build",
+    "debug": "cross-env DEBUG=Eleventy* eleventy --dryrun"
   },
   "dependencies": {
     "@11ty/eleventy": "^0.11.0",

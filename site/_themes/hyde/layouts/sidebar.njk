@@ -7,11 +7,10 @@
 
       <nav class="sidebar-nav">
         <a class="sidebar-nav-item{% if page.url == '/' %} active{% endif %}" href="/">Home</a>
-
-        {% for item in collections.pages -%}
+        {% for item in collections.pages %}
         <a class="sidebar-nav-item{% if page.url == item.url %} active{% endif %}" href="{{ item.url }}">{{ item.data.title }}</a>
-        {%- endfor %}
-
+        {% endfor %}
+        <br>
         <a class="sidebar-nav-item" href="{{ pkg.homepage }}" rel="noopener" target="_blank">GitHub project</a>
         <span class="sidebar-nav-item">Currently v{{ pkg.version }}</span>
       </nav>

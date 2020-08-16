@@ -3,17 +3,18 @@ A starter repository for a classic blog website using the Eleventy SSG.
 
 Of course, a very opiniated one, and a work in progress!
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/0079108a-1e50-4c91-a5b7-d849710e0f0e/deploy-status)](https://app.netlify.com/sites/eleventy-classic-blog-starter/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0079108a-1e50-4c91-a5b7-d849710e0f0e/deploy-status)](https://eleventy-classic-blog-starter.netlify.app/)
 
 ## Tools
 
 - [Eleventy](https://www.11ty.dev/)
 - [Gulp](https://gulpjs.com/)
 - [highlight.js](https://highlightjs.org/)
+- [@tigersway/gulp-responsive](https://github.com/TigersWay/gulp-responsive) & [gulp-vinyl-flow](https://github.com/TigersWay/gulp-vinyl-flow)
 
 ## Themes
 
-- [Hyde](https://hyde.getpoole.com/)
+- Nunjucks port - but same CSS - based on liquid layouts from [Hyde](https://hyde.getpoole.com/) by [@mdo](https://twitter.com/mdo)
 
 ## Problems, notes and sometimes solutions
 
@@ -34,5 +35,9 @@ SEO experts are saying you should avoid to set year, month and day in your URL, 
 
 ### Responsive
 
-### Partials
+With a little help from [@tigersway/gulp-responsive](https://github.com/TigersWay/gulp-responsive) and [gulp-vinyl-flow](https://github.com/TigersWay/gulp-vinyl-flow), Eleventy can [transform](.eleventy.js#L76-L88) every `img` tag.
+
+### Nunjucks & Fragments
+
+[source](.eleventy.js#L42-L49)
 

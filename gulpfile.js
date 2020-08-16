@@ -21,10 +21,12 @@ const clean = async () => await require('del')([`${destPath}/**`, `!${destPath}`
 
 
 const justCopy = () => src([
-  'site/favicon.ico',
+  `site/${theme}/favicon.ico`,
+  `site/${theme}/favicon-32x32.png`,
+  `site/${theme}/apple-touch-icon.png`,
   // Any other file(s)
 ])
-  // .pipe(src( And more if needed ))
+  // .pipe(src( And more if different folder needed ))
   .pipe(dest(destPath));
 
 
@@ -90,7 +92,6 @@ const serve = () => {
         `${destPath}/css/*.css`,
         `${destPath}/images/*`
       ],
-      // browser: [...(process.env.BROWSER) ? [process.env.BROWSER] : []]
       browser: (process.env.BROWSER) ? process.env.BROWSER : 'default'
     });
 };
