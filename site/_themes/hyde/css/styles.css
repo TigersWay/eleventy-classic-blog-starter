@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap');
-
 @import poole.css;
 @import hyde.css;
 
@@ -9,6 +7,7 @@ a {color: #1a6091;}                             /* darken(#268bd2, 15%); */
 .post-date {color: #747474; font-size: 90%;}    /*  darken(#9a9a9a, 15%); */
 .related-posts li small {color: #747474;}
 
+.sidebar {color: rgba(255,255,255,.85);}
 
 .sidebar-nav-item {line-height: 2.75;}
 @media (min-width: 48em) {
