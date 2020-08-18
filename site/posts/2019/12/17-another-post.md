@@ -1,6 +1,7 @@
 ---
 title: "Another post"
 date: 2019-12-17T16:22:00.000+07:00
+tags: [others]
 ---
 ![Sunset](federico-faccipieri-wSI8Zmff548-unsplash.jpg)
 

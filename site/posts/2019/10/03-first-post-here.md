@@ -1,6 +1,7 @@
 ---
 title: "First post ever!"
 date: 2019-10-03T20:00:00.000+07:00
+tags: [others]
 ---
 ## Pretium pellentesque dignissim et ipsum wisi
 

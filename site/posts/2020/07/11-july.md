@@ -1,6 +1,7 @@
 ---
 title: "July"
 date: 2020-07-11 12:30:00 +7
+tags: [sample, others]
 ---
 ![Tuk tuk](lauren-kay-A3V4fXudLhU-unsplash.jpg)
 

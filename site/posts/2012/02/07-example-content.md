@@ -1,6 +1,7 @@
 ---
 title: "Example content"
 date: 2012-02-07T12:00:00.000Z
+tags: [sample, some]
 ---
 <div class="message">
   Howdy! This is an example blog post that shows several types of HTML content supported in this theme.
