@@ -66,15 +66,19 @@ const buildImages = () => {
     .pipe(src('site/pages/**/*.{jpg,png}'))
     .pipe($.responsive({
       '**/*': [{
+        jpeg: {quality: 70},
         resize: {width: 400},
         rename: {suffix: '-400x'}
       },{
+        jpeg: {quality: 70},
         resize: {width: 720},
         rename: {suffix: '-720x'}
       },{
+        jpeg: {quality: 70},
         resize: {width: 800},
         rename: {suffix: '-400x@2x'}
       },{
+        jpeg: {quality: 70},
         resize: {width: 1200},
         rename: {suffix: '-400x@3x'}
       }]

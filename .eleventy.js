@@ -26,6 +26,7 @@ module.exports = (eleventyConfig) => {
       return '';
     }
   })
+    .use(require('markdown-it-imsize'), {autofill: true})
     .use(require('markdown-it-emoji/light'))
     .use(require('markdown-it-link-attributes'), {
       pattern: /^(https?:)?\/\//,
