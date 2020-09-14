@@ -78,8 +78,8 @@ module.exports = (eleventyConfig) => {
       return fileContent.replace(/(<article .*?data-input-path="(.*?)".*?>)([\s\S]*?)(<\/article>)/gim, (match, openingtag, inputPath, content, closingtag) => {
         let imagePath = inputPath.match(/(?:\/posts(\/\d{4}\/\d{2}\/)|\/pages\/)[^\/]*/);
         imagePath = (imagePath) ? (imagePath[1] ? imagePath[1] : '/') : '';
-        content = content.replace(/<img src="(?!https?:\/\/)(.*?)" alt="(.*?)">/g, (match, src, alt) => {
-          return `<img src="${suffix(`/images${imagePath}${src}`, '-720x')}" alt="${alt}" loading="lazy" srcset="${suffix(`/images${imagePath}${src}`, '-720x')} 1x, ${suffix(`/images${imagePath}${src}`, '-400x')} 1x, ${suffix(`/images${imagePath}${src}`, '-400x@2x')} 2x, ${suffix(`/images${imagePath}${src}`, '-400x@3x')} 3x">`;
+        content = content.replace(/<img src="(?!https?:\/\/)(.*?).jpg" alt="(.*?)">/g, (match, src, alt) => {
+          return `<img src="${suffix(`/images${imagePath}${src}.jpg`, '-720x')}" alt="${alt}" loading="lazy" srcset="${suffix(`/images${imagePath}${src}.jpg`, '-720x')} 1x, ${suffix(`/images${imagePath}${src}.jpg`, '-330x')} 1x, ${suffix(`/images${imagePath}${src}.jpg`, '-330x@2x')} 2x, ${suffix(`/images${imagePath}${src}.jpg`, '-330x@3x')} 3x">`;
         })
         return `${openingtag}${content}${closingtag}`;
       });

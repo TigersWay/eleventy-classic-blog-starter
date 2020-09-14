@@ -67,20 +67,20 @@ const buildImages = () => {
     .pipe($.responsive({
       '**/*': [{
         jpeg: {quality: 70},
-        resize: {width: 400},
-        rename: {suffix: '-400x'}
+        resize: {width: 330},
+        rename: {suffix: '-330x'}
       },{
         jpeg: {quality: 70},
         resize: {width: 720},
         rename: {suffix: '-720x'}
       },{
         jpeg: {quality: 70},
-        resize: {width: 800},
-        rename: {suffix: '-400x@2x'}
+        resize: {width: 660},
+        rename: {suffix: '-330x@2x'}
       },{
         jpeg: {quality: 70},
-        resize: {width: 1200},
-        rename: {suffix: '-400x@3x'}
+        resize: {width: 990},
+        rename: {suffix: '-330x@3x'}
       }]
     }))
     .pipe($.newer(`${destPath}/images`))
