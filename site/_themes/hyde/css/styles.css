@@ -3,6 +3,8 @@
 @import poole.css;
 @import hyde.css;
 
+article {content-visibility: auto;}
+
 /* Poole & Hyde default CSS does not pass today's lighthouse tests */
 
 a {color: #1a6091;}                             /* darken(#268bd2, 15%); */
