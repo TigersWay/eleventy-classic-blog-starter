@@ -75,11 +75,12 @@ module.exports = (eleventyConfig) => {
   const {suffix} = require('./_11ty/filters/rename.js');
   eleventyConfig.addTransform('async-transform-images', async (fileContent, outputPath, inputPath) => {
     if (outputPath.endsWith('.html')) {
+      let lazy = 0;
       return fileContent.replace(/(<article .*?data-input-path="(.*?)".*?>)([\s\S]*?)(<\/article>)/gim, (match, openingtag, inputPath, content, closingtag) => {
         let imagePath = inputPath.match(/(?:\/posts(\/\d{4}\/\d{2}\/)|\/pages\/)[^\/]*/);
         imagePath = (imagePath) ? (imagePath[1] ? imagePath[1] : '/') : '';
         content = content.replace(/<img src="(?!https?:\/\/)(.*?).jpg" alt="(.*?)">/g, (match, src, alt) => {
-          return `<picture><source type="image/webp" srcset="${suffix(`/images${imagePath}${src}.webp`, '-330x')} 330w, ${suffix(`/images${imagePath}${src}.webp`, '-720x')} 720w, ${suffix(`/images${imagePath}${src}.webp`, '-330x@2x')} 2x, ${suffix(`/images${imagePath}${src}.webp`, '-330x@3x')} 3x"><img src="${suffix(`/images${imagePath}${src}.jpg`, '-720x')}" alt="${alt}" loading="lazy"></picture>`
+          return `<picture><source type="image/webp" srcset="${suffix(`/images${imagePath}${src}.webp`, '-330x')} 330w, ${suffix(`/images${imagePath}${src}.webp`, '-720x')} 720w, ${suffix(`/images${imagePath}${src}.webp`, '-330x@2x')} 2x, ${suffix(`/images${imagePath}${src}.webp`, '-330x@3x')} 3x"><img src="${suffix(`/images${imagePath}${src}.jpg`, '-720x')}" alt="${alt}"${lazy++ ? ' loading="lazy"' : ''}></picture>`
         })
         return `${openingtag}${content}${closingtag}`;
       });
