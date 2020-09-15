@@ -4,6 +4,7 @@
 @import hyde.css;
 
 article {content-visibility: auto;}
+article img {width:100%; height:auto;}
 
 /* Poole & Hyde default CSS does not pass today's lighthouse tests */
 

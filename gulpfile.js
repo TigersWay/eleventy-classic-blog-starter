@@ -62,32 +62,32 @@ const watchCSS = () => watch(`site/${theme}/css/styles.css`, buildCSS);
 
 
 const buildImages = () => {
-  return src('site/posts/**/*.{jpg,png}')
-    .pipe(src('site/pages/**/*.{jpg,png}'))
-    .pipe($.responsive({
-      '**/*': [{
-        jpeg: {quality: 70},
-        resize: {width: 330},
-        rename: {suffix: '-330x'}
-      },{
-        jpeg: {quality: 70},
-        resize: {width: 720},
-        rename: {suffix: '-720x'}
-      },{
-        jpeg: {quality: 70},
-        resize: {width: 660},
-        rename: {suffix: '-330x@2x'}
-      },{
-        jpeg: {quality: 70},
-        resize: {width: 990},
-        rename: {suffix: '-330x@3x'}
-      }]
-    }))
+  return src('site/posts/**/*.jpg')
+    .pipe(src('site/pages/**/*.jpg'))
+    .pipe($.responsive(
+      $.responsive.webp(
+        $.responsive.insertSome({
+          '**/*': [{
+            resize: {width: 330},
+            rename: {suffix: '-330x'}
+          },{
+            resize: {width: 720},
+            rename: {suffix: '-720x'}
+          },{
+            resize: {width: 660},
+            rename: {suffix: '-330x@2x'}
+          },{
+            resize: {width: 990},
+            rename: {suffix: '-330x@3x'}
+          }]
+        }, '**/*.jpg', { jpeg: { quality: 80 }})
+      )
+    ))
     .pipe($.newer(`${destPath}/images`))
     .pipe($.vinylFlow())
     .pipe(dest(`${destPath}/images`));
 };
-const watchImages = () => watch('site/{posts,pages}/**/*.{jpg,png}', buildImages);
+const watchImages = () => watch('site/{posts,pages}/**/*.jpg', buildImages);
 
 
 const serve = () => {

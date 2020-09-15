@@ -79,7 +79,7 @@ module.exports = (eleventyConfig) => {
         let imagePath = inputPath.match(/(?:\/posts(\/\d{4}\/\d{2}\/)|\/pages\/)[^\/]*/);
         imagePath = (imagePath) ? (imagePath[1] ? imagePath[1] : '/') : '';
         content = content.replace(/<img src="(?!https?:\/\/)(.*?).jpg" alt="(.*?)">/g, (match, src, alt) => {
-          return `<img src="${suffix(`/images${imagePath}${src}.jpg`, '-720x')}" alt="${alt}" loading="lazy" srcset="${suffix(`/images${imagePath}${src}.jpg`, '-720x')} 1x, ${suffix(`/images${imagePath}${src}.jpg`, '-330x')} 1x, ${suffix(`/images${imagePath}${src}.jpg`, '-330x@2x')} 2x, ${suffix(`/images${imagePath}${src}.jpg`, '-330x@3x')} 3x">`;
+          return `<picture><source type="image/webp" srcset="${suffix(`/images${imagePath}${src}.webp`, '-330x')} 330w, ${suffix(`/images${imagePath}${src}.webp`, '-720x')} 720w, ${suffix(`/images${imagePath}${src}.webp`, '-330x@2x')} 2x, ${suffix(`/images${imagePath}${src}.webp`, '-330x@3x')} 3x"><img src="${suffix(`/images${imagePath}${src}.jpg`, '-720x')}" alt="${alt}" loading="lazy"></picture>`
         })
         return `${openingtag}${content}${closingtag}`;
       });
