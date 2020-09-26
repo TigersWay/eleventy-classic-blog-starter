@@ -8,8 +8,8 @@ const
 // Variables & parameters
 
 const
-  isProduction = (process.env.NODE_ENV === 'production'),
-  pkg = require('./package.json'),
+  // isProduction = (process.env.NODE_ENV === 'production'),
+  // pkg = require('./package.json'),
   site = require('./site/_data/site.js'),
   destPath = 'public',
   theme = '_themes/' + (process.env.THEME || site.theme);
@@ -26,7 +26,7 @@ const justCopy = () => src([
   `site/${theme}/apple-touch-icon.png`,
   // Any other file(s)
 ])
-  // .pipe(src( And more if different folder needed ))
+  .pipe(src(`site/${theme}/fonts/*.woff*`, {base: `site/${theme}`}))
   .pipe(dest(destPath));
 
 
@@ -44,45 +44,48 @@ const buildCSS = () => {
   return src(`site/${theme}/css/styles.css`, {base: `site/${theme}`})
     .pipe(src('./node_modules/highlight.js/styles/github.css'))
     .pipe($.concat('css/styles.css'))
-    .pipe($.header('/*! ${pkg.name} v${pkg.version} | ${pkg.license} | ${ pkg.author} */', {pkg: pkg}))
+    // .pipe($.header('/*! ${pkg.name} v${pkg.version} | ${pkg.license} | ${ pkg.author} */', {pkg: pkg}))
     .pipe($.cleanCss({
-      format: {
-        breakWith: 'unix',
-        breaks: {afterComment: true, afterRuleEnds: !isProduction}
-      },
+      // format: {
+      //   breakWith: 'unix',
+      //   breaks: {afterComment: true, afterRuleEnds: !isProduction}
+      // },
       level: {
-        1: {specialComments: '1'},
+        // 1: {specialComments: '1'},
         2: {restructureRules: true}
       }
     }))
-    .pipe($.rename({suffix: '.min'}))
-    .pipe(dest(destPath));
+    // .pipe($.rename({suffix: '.min'}))
+    // .pipe(dest(destPath));
+    .pipe(dest(`site/${theme}/layouts`));
 };
 const watchCSS = () => watch(`site/${theme}/css/styles.css`, buildCSS);
 
 
 const buildImages = () => {
-  return src('site/posts/**/*.jpg')
-    .pipe(src('site/pages/**/*.jpg'))
-    .pipe($.responsive(
-      $.responsive.webp(
-        $.responsive.insertSome({
-          '**/*': [{
-            resize: {width: 330},
-            rename: {suffix: '-330x'}
-          },{
-            resize: {width: 720},
-            rename: {suffix: '-720x'}
-          },{
-            resize: {width: 660},
-            rename: {suffix: '-330x@2x'}
-          },{
-            resize: {width: 990},
-            rename: {suffix: '-330x@3x'}
-          }]
-        }, '**/*.jpg', { jpeg: { quality: 80 }})
-      )
-    ))
+  return src(['site/posts/**/*.jpg', 'site/pages/**/*.jpg'])
+    .pipe($.responsive({
+      '**/*': [{
+        resize: {width: 720},
+        rename: {suffix: '-720x'}
+      },{
+        resize: {width: 330},
+        webp: {},
+        rename: {suffix: '-330x', extname: '.webp'}
+      },{
+        resize: {width: 720},
+        webp: {},
+        rename: {suffix: '-720x', extname: '.webp'}
+      },{
+        resize: {width: 660},
+        webp: {},
+        rename: {suffix: '-330x@2x', extname: '.webp'}
+      },{
+        resize: {width: 990},
+        webp: {},
+        rename: {suffix: '-330x@3x', extname: '.webp'}
+      }]
+    }))
     .pipe($.newer(`${destPath}/images`))
     .pipe($.vinylFlow())
     .pipe(dest(`${destPath}/images`));
@@ -114,7 +117,7 @@ module.exports = {
 
   build: series(
     clean,
-    parallel(justCopy, buildCSS, series(buildHTML, buildImages))
+    parallel(justCopy, series(buildCSS, buildHTML, buildImages))
   ),
 
   live: parallel(watchHTML, watchCSS, watchImages, serve)

@@ -10,7 +10,7 @@
     "highlight-js",
     "hyde-theme"
   ],
-  "version": "0.4.0",
+  "version": "0.5.0",
   "license": "MIT",
   "author": "Ben Michaud <ben@tigersway.net>",
   "repository": {
@@ -26,9 +26,9 @@
   "dependencies": {
     "@11ty/eleventy": "^0.11.0",
     "@11ty/eleventy-navigation": "^0.1.6",
-    "@tigersway/gulp-responsive": "^1.2.0",
+    "@tigersway/gulp-responsive": "^1.3.0",
     "cheerio": "^1.0.0-rc.3",
-    "del": "^5.1.0",
+    "del": "^6.0.0",
     "fast-glob": "^3.2.4",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
@@ -43,9 +43,10 @@
     "markdown-it-attrs": "^3.0.3",
     "markdown-it-emoji": "^1.4.0",
     "markdown-it-link-attributes": "^3.0.0",
-    "moment": "^2.28.0"
+    "moment": "^2.29.0"
   },
   "devDependencies": {
-    "browser-sync": "^2.26.12"
+    "browser-sync": "^2.26.12",
+    "critical": "^2.0.4"
   }
 }
