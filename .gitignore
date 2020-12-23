@@ -23,3 +23,6 @@ public
 # Logs
 logs
 *.log*
+
+# This project
+site/_themes/hyde/layouts/css/styles.css

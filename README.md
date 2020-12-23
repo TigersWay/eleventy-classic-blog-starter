@@ -1,9 +1,28 @@
-# eleventy-classic-blog-starter
+# eleventy-classic-blog-starter  ![GitHub last commit](https://img.shields.io/github/last-commit/tigersway/eleventy-classic-blog-starter?style=flat-square) ![GitHub issues](https://img.shields.io/github/issues/tigersway/eleventy-classic-blog-starter?style=flat-square)
+
 A starter repository for a classic blog website using the Eleventy SSG.
 
 Of course, a very opiniated one, and a work in progress!
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/0079108a-1e50-4c91-a5b7-d849710e0f0e/deploy-status)](https://eleventy-classic-blog-starter.netlify.app/)
+[![Vercel](https://img.shields.io/badge/-vercel-000?style=flat-square&logo=eleventy)](https://eleventy-classic-blog-starter.vercel.app/)
+[![Netlify](https://img.shields.io/badge/-netlify-45a2be?style=flat-square&logo=eleventy)](https://eleventy-classic-blog-starter.netlify.app/)
+[![Render](https://img.shields.io/badge/-render-46e3b7?style=flat-square&logo=eleventy)](https://eleventy-classic-blog-starter.onrender.com/)
+[![Surge](https://img.shields.io/badge/-surge-def1e7?style=flat-square&logo=eleventy)](https://eleventy-classic-blog-starter.surge.sh/)
+
+
+## Local setup and run
+Very classic too...
+### Clone & install
+```
+git clone https://github.com/tigersway/eleventy-classic-blog-starter.git <my-blog-name>
+cd <my-blog-name>
+npm install
+```
+### build first, and set live!
+```
+npm run build
+npm run live
+```
 
 ## Tools
 
@@ -41,3 +60,5 @@ With a little help from [@tigersway/gulp-responsive](https://github.com/TigersWa
 
 [source](.eleventy.js#L42-L49)
 
+## Bug reports, feature requests... or even stars
+This is an ongoing project - even if I don't modify it everyday - and every suggestions and/or contributions are most welcome!
