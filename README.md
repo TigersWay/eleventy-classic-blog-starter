@@ -8,6 +8,7 @@ Of course, a very opiniated one, and a work in progress!
 [![Netlify](https://img.shields.io/badge/-netlify-45a2be?style=flat-square&logo=eleventy)](https://eleventy-classic-blog-starter.netlify.app/)
 [![Render](https://img.shields.io/badge/-render-46e3b7?style=flat-square&logo=eleventy)](https://eleventy-classic-blog-starter.onrender.com/)
 [![Surge](https://img.shields.io/badge/-surge-def1e7?style=flat-square&logo=eleventy)](https://eleventy-classic-blog-starter.surge.sh/)
+[![Hostman](https://img.shields.io/badge/-hostman-0959cd?style=flat-square&logo=eleventy)](https://eleventy-classic-blog-starter.hostman.site/)
 
 
 ## Local setup and run
