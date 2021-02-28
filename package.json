@@ -10,7 +10,7 @@
     "highlight-js",
     "hyde-theme"
   ],
-  "version": "0.6.0",
+  "version": "0.6.1",
   "license": "MIT",
   "author": "Ben Michaud <ben@tigersway.net>",
   "repository": {
@@ -39,14 +39,14 @@
     "gulp-rename": "^2.0.0",
     "gulp-vinyl-flow": "^1.1.0",
     "highlight.js": "^10.2.0",
-    "markdown-it": "^11.0.1",
-    "markdown-it-attrs": "^3.0.3",
-    "markdown-it-emoji": "^1.4.0",
+    "markdown-it": "^12.0.4",
+    "markdown-it-attrs": "^4.0.0",
+    "markdown-it-emoji": "^2.0.0",
     "markdown-it-link-attributes": "^3.0.0",
     "moment": "^2.29.0"
   },
   "devDependencies": {
     "browser-sync": "^2.26.12",
-    "critical": "^2.0.4"
+    "critical": "^3.0.0"
   }
 }

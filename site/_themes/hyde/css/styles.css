@@ -1,7 +1,7 @@
-@import "./fonts.css";
+@import "fonts.css";
 
-@import "./poole.css";
-@import "./hyde.css";
+@import "poole.css";
+@import "hyde.css";
 
 article {content-visibility: auto;}
 article img {width:100%; height:auto;}

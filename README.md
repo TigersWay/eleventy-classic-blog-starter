@@ -4,9 +4,10 @@ A starter repository for a classic blog website using the Eleventy SSG.
 
 Of course, a very opiniated one, and a work in progress!
 
-[![Vercel](https://img.shields.io/badge/-vercel-000?style=flat-square&logo=eleventy)](https://eleventy-classic-blog-starter.vercel.app/)
+[![Cloudflare](https://img.shields.io/badge/-cloudflare-f38020?style=flat-square&logo=eleventy)](https://eleventy-classic-blog-starter.pages.dev/)
 [![Netlify](https://img.shields.io/badge/-netlify-45a2be?style=flat-square&logo=eleventy)](https://eleventy-classic-blog-starter.netlify.app/)
 [![Render](https://img.shields.io/badge/-render-46e3b7?style=flat-square&logo=eleventy)](https://eleventy-classic-blog-starter.onrender.com/)
+[![Vercel](https://img.shields.io/badge/-vercel-000?style=flat-square&logo=eleventy)](https://eleventy-classic-blog-starter.vercel.app/)
 [![Surge](https://img.shields.io/badge/-surge-def1e7?style=flat-square&logo=eleventy)](https://eleventy-classic-blog-starter.surge.sh/)
 [![Hostman](https://img.shields.io/badge/-hostman-0959cd?style=flat-square&logo=eleventy)](https://eleventy-classic-blog-starter.hostman.site/)
 
@@ -63,3 +64,9 @@ With a little help from [@tigersway/gulp-responsive](https://github.com/TigersWa
 
 ## Bug reports, feature requests... or even stars
 This is an ongoing project - even if I don't modify it everyday - and every suggestions and/or contributions are most welcome!
+
+## CHANGELOG
+
+**v0.6.1**
+  - First try on "Cloudflare Pages"
+  - Added robots.txt 

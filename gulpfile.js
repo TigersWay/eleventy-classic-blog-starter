@@ -24,6 +24,8 @@ const justCopy = () => src([
   `site/${theme}/favicon.ico`,
   `site/${theme}/favicon-32x32.png`,
   `site/${theme}/apple-touch-icon.png`,
+  `site/robots.txt`,
+  `site/humans.txt`,
   // Any other file(s)
 ])
   .pipe(src(`site/${theme}/fonts/*.woff*`, {base: `site/${theme}`}))
