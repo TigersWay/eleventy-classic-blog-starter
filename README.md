@@ -67,6 +67,9 @@ This is an ongoing project - even if I don't modify it everyday - and every sugg
 
 ## CHANGELOG
 
+**v1.0.0**
+  - Delete FrontAid CMS files - CMS tests will be done later
+
 **v0.6.1**
   - First try on "Cloudflare Pages"
-  - Added robots.txt 
+  - Added robots.txt
