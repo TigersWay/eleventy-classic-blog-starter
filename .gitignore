@@ -1,28 +1,13 @@
 # Windows, IDE & Personal preferences
 desktop.ini
 folder.ico
-.vscode
-.editorconfig
-.eslintrc.js
+.vscode/
 
 # (p)npm
-node_modules
+node_modules/
 package-lock.json
 pnpm-lock.yaml
 
-# Local Netlify folder
-.netlify
-
-# Distribution or Generated output
-dist
-public
-
-# dotenv environment variables file
-.env*
-
-# Logs
-logs
-*.log*
-
-# This project
+# This project specific files & directories
+public/
 site/_themes/hyde/layouts/css/styles.css
