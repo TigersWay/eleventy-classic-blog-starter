@@ -26,7 +26,7 @@ const buildHTML = () => {
       stdio: 'inherit'
     });
 };
-const watchHTML = () => watch(['site/**/*.{md,njk,11tydata.js}', '_11ty/**/*.js', '.eleventy.js'], buildHTML);
+// const watchHTML = () => watch(['site/**/*.{md,njk,11tydata.js}', '_11ty/**/*.js', '.eleventy.js'], buildHTML);
 
 
 const buildCSS = () => {
@@ -70,35 +70,38 @@ const buildImages = () => {
     .pipe($.vinylFlow())
     .pipe(dest(`${destPath}/images`));
 };
-const watchImages = () => watch('site/{posts,pages}/**/*.jpg', buildImages);
+const watchImages = () => watch('site/{posts,pages}/**/*.jpg', { ignoreInitial: false }, buildImages);
 
 
 const serve = () => {
-  return require('browser-sync')
-    .init({
-      server: destPath,
-      files: [
-        `${destPath}/**/*.html`,
-        `${destPath}/css/*.css`,
-        `${destPath}/images/*`
-      ],
-      browser: (process.env.BROWSER) ? process.env.BROWSER : 'default'
+  // return require('browser-sync')
+  //   .init({
+  //     server: destPath,
+  //     files: [
+  //       `${destPath}/**/*.html`,
+  //       `${destPath}/css/*.css`,
+  //       `${destPath}/images/*`
+  //     ],
+  //     browser: (process.env.BROWSER) ? process.env.BROWSER : 'default'
+  //   });
+  return require('child_process').spawn('npx',
+    ['@11ty/eleventy', '--serve'], {
+      shell: true,
+      stdio: 'inherit'
     });
 };
 
 
 module.exports = {
-  clean: clean,
+  // clean: clean,
 
-  buildHTML: buildHTML,
-  watchCSS,
-  buildCSS,
-  buildImages: buildImages,
+  // buildHTML: buildHTML,
+  // watchCSS,
+  // buildCSS,
+  // buildImages: buildImages,
 
-  build: series(
-    clean,
-    parallel(series(buildCSS, buildHTML, buildImages))
-  ),
+  live: parallel(watchCSS, watchImages, serve),
 
-  live: parallel(watchHTML, watchCSS, watchImages, serve)
+  build: series(clean, buildCSS, buildHTML, buildImages)
+
 };

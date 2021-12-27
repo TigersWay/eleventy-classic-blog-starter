@@ -9,14 +9,14 @@ eleventyExcludeFromCollections: true
     <link>{{ site.url }}</link>
     <description>{{ site.tagline }}</description>
     <lastBuildDate>{{ site.time | dateRSS }}</lastBuildDate>
-    <atom:link href="{{ site.url }}{{ page.url | url }}" rel="self" type="application/rss+xml"/>
+    <atom:link href="{{ site.url }}{{ page.url }}" rel="self" type="application/rss+xml"/>
 {%- for post in collections.posts | reverse | limit(20) %}
     <item>
       <title>{{ post.data.title }}</title>
       <link>{{ site.url }}{{ post.url | url}}</link>
       <description>{{ post.templateContent | excerpt }}</description>
       <pubDate>{{ post.date | dateRSS }}</pubDate>
-      <guid>{{ site.url }}{{ post.url | url}}</guid>
+      <guid>{{ site.url }}{{ post.url }}</guid>
     </item>
 {%- endfor %}
   </channel>

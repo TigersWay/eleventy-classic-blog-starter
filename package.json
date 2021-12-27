@@ -19,9 +19,8 @@
   },
   "homepage": "https://github.com/TigersWay/eleventy-classic-blog-starter/#readme",
   "scripts": {
-    "live": "NODE_ENV=development eleventy --serve",
-    "build": "gulp build",
-    "_live": "gulp live",
+    "live": "NODE_ENV=development gulp live",
+    "build": "NODE_ENV=production gulp build",
     "debug": "cross-env DEBUG=Eleventy* eleventy --dryrun"
   },
   "dependencies": {
