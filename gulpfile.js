@@ -8,28 +8,15 @@ const
 // Variables & parameters
 
 const
-  // isProduction = (process.env.NODE_ENV === 'production'),
-  // pkg = require('./package.json'),
-  site = require('./site/_data/site.js'),
   destPath = 'public',
+
+  site = require('./site/_data/site.js'),
   theme = '_themes/' + (process.env.THEME || site.theme);
 
 
 // Tasks
 
 const clean = async () => await require('del')([`${destPath}/**`, `!${destPath}`]);
-
-
-const justCopy = () => src([
-  `site/${theme}/favicon.ico`,
-  `site/${theme}/favicon-32x32.png`,
-  `site/${theme}/apple-touch-icon.png`,
-  `site/robots.txt`,
-  `site/humans.txt`,
-  // Any other file(s)
-])
-  .pipe(src(`site/${theme}/fonts/*.woff*`, {base: `site/${theme}`}))
-  .pipe(dest(destPath));
 
 
 const buildHTML = () => {
@@ -44,24 +31,15 @@ const watchHTML = () => watch(['site/**/*.{md,njk,11tydata.js}', '_11ty/**/*.js'
 
 const buildCSS = () => {
   return src(`site/${theme}/css/styles.css`, {base: `site/${theme}`})
-    .pipe(src('./node_modules/highlight.js/styles/github.css'))
-    .pipe($.concat('css/styles.css'))
-    // .pipe($.header('/*! ${pkg.name} v${pkg.version} | ${pkg.license} | ${ pkg.author} */', {pkg: pkg}))
+    .pipe($.postcss())
     .pipe($.cleanCss({
-      // format: {
-      //   breakWith: 'unix',
-      //   breaks: {afterComment: true, afterRuleEnds: !isProduction}
-      // },
       level: {
-        // 1: {specialComments: '1'},
         2: {restructureRules: true}
       }
     }))
-    // .pipe($.rename({suffix: '.min'}))
-    // .pipe(dest(destPath));
     .pipe(dest(`site/${theme}/layouts`));
 };
-const watchCSS = () => watch(`site/${theme}/css/styles.css`, buildCSS);
+const watchCSS = () => watch(`site/${theme}/css/styles.css`, { ignoreInitial: false }, buildCSS);
 
 
 const buildImages = () => {
@@ -111,15 +89,15 @@ const serve = () => {
 
 module.exports = {
   clean: clean,
-  justCopy: justCopy,
 
   buildHTML: buildHTML,
-  buildCSS: buildCSS,
+  watchCSS,
+  buildCSS,
   buildImages: buildImages,
 
   build: series(
     clean,
-    parallel(justCopy, series(buildCSS, buildHTML, buildImages))
+    parallel(series(buildCSS, buildHTML, buildImages))
   ),
 
   live: parallel(watchHTML, watchCSS, watchImages, serve)

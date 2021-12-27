@@ -9,44 +9,44 @@ const
 
 module.exports = (eleventyConfig) => {
 
-  // Markdown engine with its plugins
-  const Markdown = require('markdown-it')({
-    html: true,         // Enable HTML tags in source
-    breaks: true,       // Convert '\n' in paragraphs into <br>
-    linkify: true,      // Autoconvert URL-like text to links
-    typographer: true,  // Enable some language-neutral replacement + quotes beautification
-    // quotes: ['«\xA0', '\xA0»', '‹\xA0', '\xA0›']
-    highlight: function (str, lang) {
-      if (lang && hljs.getLanguage(lang)) {
-        try {
-          return hljs.highlight(lang, str).value;
-        } catch (__) {}
-      }
+  // // Markdown engine with its plugins
+  // const Markdown = require('markdown-it')({
+  //   html: true,         // Enable HTML tags in source
+  //   breaks: true,       // Convert '\n' in paragraphs into <br>
+  //   linkify: true,      // Autoconvert URL-like text to links
+  //   typographer: true,  // Enable some language-neutral replacement + quotes beautification
+  //   // quotes: ['«\xA0', '\xA0»', '‹\xA0', '\xA0›']
+  //   highlight: function (str, lang) {
+  //     if (lang && hljs.getLanguage(lang)) {
+  //       try {
+  //         return hljs.highlight(str, {language: lang}).value;
+  //       } catch (__) {}
+  //     }
 
-      return '';
-    }
-  })
-    .use(require('markdown-it-emoji/light'))
-    .use(require('markdown-it-link-attributes'), {
-      pattern: /^(https?:)?\/\//,
-      attrs: {
-        target: '_blank',
-        rel: 'noopener'
-      }
-    })
-    .use(require('markdown-it-attrs'), {
-      allowedAttributes: ['id', 'class']
-    });
-  eleventyConfig.setLibrary('md', Markdown);
+  //     return '';
+  //   }
+  // })
+  //   .use(require('markdown-it-emoji/light'))
+  //   .use(require('markdown-it-link-attributes'), {
+  //     pattern: /^(https?:)?\/\//,
+  //     attrs: {
+  //       target: '_blank',
+  //       rel: 'noopener'
+  //     }
+  //   })
+  //   .use(require('markdown-it-attrs'), {
+  //     allowedAttributes: ['id', 'class']
+  //   });
+  // eleventyConfig.setLibrary('md', Markdown);
 
-  // Nunjucks engine with its fragments
-  const nunjucks = require("nunjucks");
-  let nunjucksEnvironment = new nunjucks.Environment(
-    new nunjucks.FileSystemLoader([`site/${theme}/layouts`, `site/${theme}/fragments`]),
-    {trimBlocks: true, lstripBlocks: true}  // Nunjucks are so much easier to read now!
-  );
-  eleventyConfig.setLibrary("njk", nunjucksEnvironment);
-  eleventyConfig.addNunjucksShortcode('inline', (name, args) => nunjucksEnvironment.render(`${name}.njk`, args));
+  // // Nunjucks engine with its fragments
+  // const nunjucks = require("nunjucks");
+  // let nunjucksEnvironment = new nunjucks.Environment(
+  //   new nunjucks.FileSystemLoader([`site/${theme}/layouts`, `site/${theme}/fragments`]),
+  //   {trimBlocks: true, lstripBlocks: true}  // Nunjucks are so much easier to read now!
+  // );
+  // eleventyConfig.setLibrary("njk", nunjucksEnvironment);
+  // eleventyConfig.addNunjucksShortcode('inline', (name, args) => nunjucksEnvironment.render(`${name}.njk`, args));
 
 
   // Filters
@@ -71,35 +71,55 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addCollection('pages', (collectionApi) => collectionApi.getFilteredByGlob('site/pages/**/*.md'));
   eleventyConfig.addCollection('posts', (collectionApi) => collectionApi.getFilteredByGlob('site/posts/**/*.md'));
 
-  // Transforms
-  const {suffix} = require('./_11ty/filters/rename.js');
-  eleventyConfig.addTransform('async-transform-images', async (fileContent, outputPath, inputPath) => {
-    if (outputPath.endsWith('.html')) {
-      let lazy = 0;
-      return fileContent.replace(/(<article .*?data-input-path="(.*?)".*?>)([\s\S]*?)(<\/article>)/gim, (match, openingtag, inputPath, content, closingtag) => {
-        let imagePath = inputPath.match(/(?:\/posts(\/\d{4}\/\d{2}\/)|\/pages\/)[^\/]*/);
-        imagePath = (imagePath) ? (imagePath[1] ? imagePath[1] : '/') : '';
-        content = content.replace(/<img src="(?!https?:\/\/)(.*?).jpg" alt="(.*?)">/g, (match, src, alt) => {
-          return `<picture><source type="image/webp" srcset="${suffix(`/images${imagePath}${src}.webp`, '-330x')} 330w, ${suffix(`/images${imagePath}${src}.webp`, '-720x')} 720w, ${suffix(`/images${imagePath}${src}.webp`, '-330x@2x')} 2x, ${suffix(`/images${imagePath}${src}.webp`, '-330x@3x')} 3x"><img src="${suffix(`/images${imagePath}${src}.jpg`, '-720x')}" alt="${alt}"${lazy++ ? ' loading="lazy"' : ''}></picture>`
-        })
-        return `${openingtag}${content}${closingtag}`;
-      });
-    }
-    return fileContent;
-  });
+  // // Transforms
+  // const {suffix} = require('./_11ty/filters/rename.js');
+  // eleventyConfig.addTransform('async-transform-images', async (fileContent, outputPath, inputPath) => {
+  //   if (outputPath.endsWith('.html')) {
+  //     let lazy = 0;
+  //     return fileContent.replace(/(<article .*?data-input-path="(.*?)".*?>)([\s\S]*?)(<\/article>)/gim, (match, openingtag, inputPath, content, closingtag) => {
+  //       let imagePath = inputPath.match(/(?:\/posts(\/\d{4}\/\d{2}\/)|\/pages\/)[^\/]*/);
+  //       imagePath = (imagePath) ? (imagePath[1] ? imagePath[1] : '/') : '';
+  //       content = content.replace(/<img src="(?!https?:\/\/)(.*?).jpg" alt="(.*?)">/g, (match, src, alt) => {
+  //         return `<picture><source type="image/webp" srcset="${suffix(`/images${imagePath}${src}.webp`, '-330x')} 330w, ${suffix(`/images${imagePath}${src}.webp`, '-720x')} 720w, ${suffix(`/images${imagePath}${src}.webp`, '-330x@2x')} 2x, ${suffix(`/images${imagePath}${src}.webp`, '-330x@3x')} 3x"><img src="${suffix(`/images${imagePath}${src}.jpg`, '-720x')}" alt="${alt}"${lazy++ ? ' loading="lazy"' : ''}></picture>`
+  //       })
+  //       return `${openingtag}${content}${closingtag}`;
+  //     });
+  //   }
+  //   return fileContent;
+  // });
 
-  eleventyConfig.setDataDeepMerge(true);
+
+  // Browser-Sync, Dev mode or "Passthrough File Copy"
+  if (process.env.NODE_ENV === 'production') {
+
+    eleventyConfig.addPassthroughCopy({ 'site/static': '.' });
+    eleventyConfig.addPassthroughCopy({ [`site/${theme}/static`]: '.' });
+
+  } else {
+
+    require('dotenv').config();
+
+    eleventyConfig.setBrowserSyncConfig({
+      browser: process.env.BROWSER || 'default',
+      port: process.env.PORT || 3000,
+      open: true,
+      serveStatic: [
+        { dir: 'site/static' },
+        { dir: `site/${theme}/static` }
+      ],
+      snippetOptions: {rule: {match: /<\/body>\n/i}}
+    });
+
+  }
+
 
   return {
-    templateFormats: ['html', 'md', 'njk', '11ty.js'],
+    templateFormats: ['md', 'njk'],
     markdownTemplateEngine: 'njk',
-    htmlTemplateEngine: 'njk',
-    dataTemplateEngine: 'njk',
 
     dir: {
       input: './site',
       includes: `${theme}/layouts`,
-      data: '_data',
       output: './public'
     }
   }

@@ -10,7 +10,7 @@
     "highlight-js",
     "hyde-theme"
   ],
-  "version": "0.6.1",
+  "version": "1.0.0-alpha",
   "license": "MIT",
   "author": "Ben Michaud <ben@tigersway.net>",
   "repository": {
@@ -19,23 +19,25 @@
   },
   "homepage": "https://github.com/TigersWay/eleventy-classic-blog-starter/#readme",
   "scripts": {
+    "live": "NODE_ENV=development eleventy --serve",
     "build": "gulp build",
-    "live": "gulp live",
+    "_live": "gulp live",
     "debug": "cross-env DEBUG=Eleventy* eleventy --dryrun"
   },
   "dependencies": {
-    "@11ty/eleventy": "^0.11.0",
+    "@11ty/eleventy": ">=1.0.0-canary.49 || ^1.0.0",
     "@11ty/eleventy-navigation": "^0.1.6",
     "@tigersway/gulp-responsive": "^1.3.0",
     "cheerio": "^1.0.0-rc.3",
+    "dayjs": "^1.10.7",
     "del": "^6.0.0",
     "fast-glob": "^3.2.4",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
-    "gulp-header": "^2.0.9",
     "gulp-load-plugins": "^2.0.4",
     "gulp-newer": "^1.4.0",
+    "gulp-postcss": "^9.0.1",
     "gulp-rename": "^2.0.0",
     "gulp-vinyl-flow": "^1.1.0",
     "highlight.js": "^10.2.0",
@@ -43,10 +45,12 @@
     "markdown-it-attrs": "^4.0.0",
     "markdown-it-emoji": "^2.0.0",
     "markdown-it-link-attributes": "^3.0.0",
-    "moment": "^2.29.0"
+    "postcss": "^8.4.5",
+    "postcss-import": "^14.0.2"
   },
   "devDependencies": {
     "browser-sync": "^2.26.12",
-    "critical": "^3.0.0"
+    "critical": "^3.0.0",
+    "dotenv": "^10.0.0"
   }
 }
