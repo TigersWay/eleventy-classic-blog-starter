@@ -39,7 +39,7 @@ const buildCSS = () => {
     }))
     .pipe(dest(`site/${theme}/layouts`));
 };
-const watchCSS = () => watch(`site/${theme}/css/styles.css`, { ignoreInitial: false }, buildCSS);
+const watchCSS = () => watch(`site/${theme}/css/*.css`, { ignoreInitial: false }, buildCSS);
 
 
 const buildImages = () => {

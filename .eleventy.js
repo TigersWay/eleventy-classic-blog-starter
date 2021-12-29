@@ -9,35 +9,36 @@ const
 
 module.exports = (eleventyConfig) => {
 
-  // // Markdown engine with its plugins
-  // const Markdown = require('markdown-it')({
-  //   html: true,         // Enable HTML tags in source
-  //   breaks: true,       // Convert '\n' in paragraphs into <br>
-  //   linkify: true,      // Autoconvert URL-like text to links
-  //   typographer: true,  // Enable some language-neutral replacement + quotes beautification
-  //   // quotes: ['«\xA0', '\xA0»', '‹\xA0', '\xA0›']
-  //   highlight: function (str, lang) {
-  //     if (lang && hljs.getLanguage(lang)) {
-  //       try {
-  //         return hljs.highlight(str, {language: lang}).value;
-  //       } catch (__) {}
-  //     }
+  // Markdown engine with its plugins
+  const Markdown = require('markdown-it')({
+    html: true,         // Enable HTML tags in source
+    breaks: true,       // Convert '\n' in paragraphs into <br>
+    linkify: true,      // Autoconvert URL-like text to links
+    typographer: true,  // Enable some language-neutral replacement + quotes beautification
+    // quotes: ['«\xA0', '\xA0»', '‹\xA0', '\xA0›']
+    highlight: function (str, lang) {
+      if (lang && hljs.getLanguage(lang)) {
+        try {
+          return hljs.highlight(str, {language: lang}).value;
+        } catch (__) {}
+      }
 
-  //     return '';
-  //   }
-  // })
-  //   .use(require('markdown-it-emoji/light'))
-  //   .use(require('markdown-it-link-attributes'), {
-  //     pattern: /^(https?:)?\/\//,
-  //     attrs: {
-  //       target: '_blank',
-  //       rel: 'noopener'
-  //     }
-  //   })
-  //   .use(require('markdown-it-attrs'), {
-  //     allowedAttributes: ['id', 'class']
-  //   });
-  // eleventyConfig.setLibrary('md', Markdown);
+      return '';
+    }
+  })
+    .use(require('markdown-it-emoji/light'))
+    .use(require('markdown-it-link-attributes'), {
+      pattern: /^(https?:)?\/\//,
+      attrs: {
+        target: '_blank',
+        rel: 'noopener'
+      }
+    })
+    .use(require('markdown-it-attrs'), {
+      allowedAttributes: ['id', 'class']
+    })
+    .use(require('markdown-it-imsize'), {autofill: true});
+  eleventyConfig.setLibrary('md', Markdown);
 
   // // Nunjucks engine with its fragments
   // const nunjucks = require("nunjucks");
@@ -80,7 +81,8 @@ module.exports = (eleventyConfig) => {
         let imagePath = inputPath.match(/(?:\/posts(\/\d{4}\/\d{2}\/)|\/pages\/)[^\/]*/);
         imagePath = (imagePath) ? (imagePath[1] ? imagePath[1] : '/') : '';
         content = content.replace(/<img src="(?!https?:\/\/)(.*?).jpg" alt="(.*?)">/g, (match, src, alt) => {
-          return `<picture><source type="image/webp" srcset="${suffix(`/images${imagePath}${src}.webp`, '-330x')} 330w, ${suffix(`/images${imagePath}${src}.webp`, '-720x')} 720w, ${suffix(`/images${imagePath}${src}.webp`, '-330x@2x')} 2x, ${suffix(`/images${imagePath}${src}.webp`, '-330x@3x')} 3x"><img src="${suffix(`/images${imagePath}${src}.jpg`, '-720x')}" alt="${alt}"${lazy++ ? ' loading="lazy"' : ''}></picture>`
+          console.log(imagePath, src);
+          return `<picture><source type="image/webp" srcset="${suffix(`/images${imagePath}${src}.webp`, '-330x')} 330w, ${suffix(`/images${imagePath}${src}.webp`, '-720x')} 720w, ${suffix(`/images${imagePath}${src}.webp`, '-330x@2x')} 2x, ${suffix(`/images${imagePath}${src}.webp`, '-330x@3x')} 3x"><img src="${suffix(`/images${imagePath}${src}.jpg`, '-720x')}" alt="${alt}"${lazy++ ? ' loading="lazy"' : ''} width="1920" height="1080"></picture>`
         })
         return `${openingtag}${content}${closingtag}`;
       });
@@ -111,6 +113,9 @@ module.exports = (eleventyConfig) => {
     });
 
   }
+
+  eleventyConfig.addWatchTarget(`site/${theme}/css`);
+  eleventyConfig.setWatchThrottleWaitTime(300);
 
 
   return {
