@@ -46,24 +46,33 @@ const buildImages = () => {
   return src(['site/posts/**/*.jpg', 'site/pages/**/*.jpg'])
     .pipe($.responsive({
       '**/*': [{
+        resize: {width: 360},
+        rename: {suffix: '-360x'}
+      },{
         resize: {width: 720},
         rename: {suffix: '-720x'}
       },{
-        resize: {width: 330},
+        resize: {width: 1080},
+        rename: {suffix: '-1080x'}
+      },{
+        resize: {width: 1440},
+        rename: {suffix: '-1440x'}
+      },{
+        resize: {width: 360},
         webp: {},
-        rename: {suffix: '-330x', extname: '.webp'}
+        rename: {suffix: '-360x', extname: '.webp'}
       },{
         resize: {width: 720},
         webp: {},
         rename: {suffix: '-720x', extname: '.webp'}
       },{
-        resize: {width: 660},
+        resize: {width: 1080},
         webp: {},
-        rename: {suffix: '-330x@2x', extname: '.webp'}
+        rename: {suffix: '-1080x', extname: '.webp'}
       },{
-        resize: {width: 990},
+        resize: {width: 1440},
         webp: {},
-        rename: {suffix: '-330x@3x', extname: '.webp'}
+        rename: {suffix: '-1440x', extname: '.webp'}
       }]
     }))
     .pipe($.newer(`${destPath}/images`))
@@ -93,8 +102,8 @@ const serve = () => {
 
 
 module.exports = {
-  // clean: clean,
-
+  clean,
+  buildHTML,
   // buildHTML: buildHTML,
   // watchCSS,
   // buildCSS,

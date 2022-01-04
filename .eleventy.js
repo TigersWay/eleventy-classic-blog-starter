@@ -1,6 +1,7 @@
 const
-  glob = require('fast-glob')
-  hljs = require('highlight.js');
+  glob = require('fast-glob'),
+  hljs = require('highlight.js'),
+  sizeOf = require('image-size');
 
 const
   site = require('./site/_data/site.js'),
@@ -19,7 +20,10 @@ module.exports = (eleventyConfig) => {
     highlight: function (str, lang) {
       if (lang && hljs.getLanguage(lang)) {
         try {
-          return hljs.highlight(str, {language: lang}).value;
+          // return hljs.highlight(str, {language: lang}).value;
+          return '<pre class="hljs"><code>' +
+               hljs.highlight(str, { language: lang, ignoreIllegals: true }).value +
+               '</code></pre>';
         } catch (__) {}
       }
 
@@ -36,8 +40,7 @@ module.exports = (eleventyConfig) => {
     })
     .use(require('markdown-it-attrs'), {
       allowedAttributes: ['id', 'class']
-    })
-    .use(require('markdown-it-imsize'), {autofill: true});
+    });
   eleventyConfig.setLibrary('md', Markdown);
 
   // // Nunjucks engine with its fragments
@@ -81,7 +84,15 @@ module.exports = (eleventyConfig) => {
         let imagePath = inputPath.match(/(?:\/posts(\/\d{4}\/\d{2}\/)|\/pages\/)[^\/]*/);
         imagePath = (imagePath) ? (imagePath[1] ? imagePath[1] : '/') : '';
         content = content.replace(/<img src="(?!https?:\/\/)(.*?).jpg" alt="(.*?)">/g, (match, src, alt) => {
-          return `<picture><source type="image/webp" srcset="${suffix(`/images${imagePath}${src}.webp`, '-330x')} 330w, ${suffix(`/images${imagePath}${src}.webp`, '-720x')} 720w, ${suffix(`/images${imagePath}${src}.webp`, '-330x@2x')} 2x, ${suffix(`/images${imagePath}${src}.webp`, '-330x@3x')} 3x"><img src="${suffix(`/images${imagePath}${src}.jpg`, '-720x')}" alt="${alt}"${lazy++ ? ' loading="lazy"' : ''} width="1920" height="1080"></picture>`
+          const size = sizeOf(`site/posts/${imagePath}${src}.jpg`)
+          // return `<picture>
+          // <source type="image/webp" srcset="${suffix(`/images${imagePath}${src}.webp`, '-330x')} 330w, ${suffix(`/images${imagePath}${src}.webp`, '-720x')} 720w, ${suffix(`/images${imagePath}${src}.webp`, '-330x@2x')} 2x, ${suffix(`/images${imagePath}${src}.webp`, '-330x@3x')} 3x">
+          // <img src="${suffix(`/images${imagePath}${src}.jpg`, '-720x')}" alt="${alt}"${lazy++ ? ' loading="lazy"' : ''} width="1920" height="1080">
+          // </picture>`
+          return `<img src="${suffix(`/images${imagePath}${src}.jpg`, '-720x')}" `
+            +`srcset="${suffix(`/images${imagePath}${src}.jpg`, '-360x')} 360w, ${suffix(`/images${imagePath}${src}.jpg`, '-720x')} 720w, ${suffix(`/images${imagePath}${src}.jpg`, '-1080x')} 1080w, ${suffix(`/images${imagePath}${src}.jpg`, '-1440x')} 1440w"
+            sizes="(min-width:768px) calc(min(calc(100vw - 22rem), 38rem) - 2rem), calc(min(100vw, 38rem) - 2rem)"
+            alt="${alt}"${lazy++ ? ' loading="lazy"' : ''} width="${size.width}" height="${size.height}">`;
         })
         return `${openingtag}${content}${closingtag}`;
       });
