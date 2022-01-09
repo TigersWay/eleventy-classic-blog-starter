@@ -34,6 +34,7 @@ const buildCSS = () => {
     .pipe($.postcss())
     .pipe($.cleanCss({
       level: {
+        1: {specialComments: 0},
         2: {restructureRules: true}
       }
     }))
