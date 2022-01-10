@@ -68,8 +68,11 @@ This is an ongoing project - even if I don't modify it everyday - and every sugg
 ## CHANGELOG
 
 **v1.0.0**
+  - Lighthouse 4 x 100%
   - Color corrections (WCAG2AA)
   - RSS
+  - Filter `excerpt` without cheerio
+  - moment -> dayjs
   - Re-visit Gulp/eleventy organization
     - Static folders
     - Fonts

@@ -20,7 +20,6 @@ module.exports = (eleventyConfig) => {
     highlight: function (str, lang) {
       if (lang && hljs.getLanguage(lang)) {
         try {
-          // return hljs.highlight(str, {language: lang}).value;
           return '<pre class="hljs"><code>' +
                hljs.highlight(str, { language: lang, ignoreIllegals: true }).value +
                '</code></pre>';
@@ -42,15 +41,6 @@ module.exports = (eleventyConfig) => {
       allowedAttributes: ['id', 'class']
     });
   eleventyConfig.setLibrary('md', Markdown);
-
-  // // Nunjucks engine with its fragments
-  // const nunjucks = require("nunjucks");
-  // let nunjucksEnvironment = new nunjucks.Environment(
-  //   new nunjucks.FileSystemLoader([`site/${theme}/layouts`, `site/${theme}/fragments`]),
-  //   {trimBlocks: true, lstripBlocks: true}  // Nunjucks are so much easier to read now!
-  // );
-  // eleventyConfig.setLibrary("njk", nunjucksEnvironment);
-  // eleventyConfig.addNunjucksShortcode('inline', (name, args) => nunjucksEnvironment.render(`${name}.njk`, args));
 
 
   // Filters
