@@ -4,12 +4,12 @@ A starter repository for a classic blog website using the Eleventy SSG.
 
 Of course, a very opiniated one, and a work in progress!
 
-[![Cloudflare](https://img.shields.io/badge/-cloudflare-f38020?style=flat-square&logo=eleventy)](https://eleventy-classic-blog-starter.pages.dev/)
-[![Netlify](https://img.shields.io/badge/-netlify-45a2be?style=flat-square&logo=eleventy)](https://eleventy-classic-blog-starter.netlify.app/)
-[![Render](https://img.shields.io/badge/-render-46e3b7?style=flat-square&logo=eleventy)](https://eleventy-classic-blog-starter.onrender.com/)
-[![Vercel](https://img.shields.io/badge/-vercel-000?style=flat-square&logo=eleventy)](https://eleventy-classic-blog-starter.vercel.app/)
-[![Surge](https://img.shields.io/badge/-surge-def1e7?style=flat-square&logo=eleventy)](https://eleventy-classic-blog-starter.surge.sh/)
-[![Hostman](https://img.shields.io/badge/-hostman-0959cd?style=flat-square&logo=eleventy)](https://eleventy-classic-blog-starter.hostman.site/)
+[![Cloudflare](https://img.shields.io/badge/Cloudflare_Pages--none?style=social&logo=cloudflare)](https://eleventy-classic-blog-starter.pages.dev/)
+[![Netlify](https://img.shields.io/badge/Netlify--none?style=social&logo=netlify)](https://eleventy-classic-blog-starter.netlify.app/)
+[![Render](https://img.shields.io/badge/Render--none?style=social&logo=eleventy&logoColor=46e3b7)](https://eleventy-classic-blog-starter.onrender.com/)
+[![Vercel](https://img.shields.io/badge/Vercel--none?style=social&logo=vercel)](https://eleventy-classic-blog-starter.vercel.app/)
+[![Surge](https://img.shields.io/badge/Surge--none?style=social&logo=eleventy&logoColor=def1e7)](https://eleventy-classic-blog-starter.surge.sh/)
+[![Hostman](https://img.shields.io/badge/Hostman--0959cd?style=social&logo=eleventy&logoColor=#0e103b)](https://eleventy-classic-blog-starter.hostman.site/)
 
 
 ## Local setup and run
@@ -67,6 +67,18 @@ This is an ongoing project - even if I don't modify it everyday - and every sugg
 
 ## CHANGELOG
 
+**v1.0.0**
+  - Lighthouse 4 x 100%
+  - Color corrections (WCAG2AA)
+  - RSS
+  - Filter `excerpt` without cheerio
+  - moment -> dayjs
+  - Re-visit Gulp/eleventy organization
+    - Static folders
+    - Fonts
+    - PostCSS
+  - Delete FrontAid CMS files - CMS tests will be done later
+
 **v0.6.1**
   - First try on "Cloudflare Pages"
-  - Added robots.txt 
+  - Added robots.txt

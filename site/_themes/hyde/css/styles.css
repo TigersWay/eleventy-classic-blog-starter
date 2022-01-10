@@ -1,18 +1,30 @@
-@import "fonts.css";
+/*! Inlined */
+@import "./fonts.css";
 
-@import "poole.css";
-@import "hyde.css";
+@import "./poole.css";
+@import "./hyde.css";
 
-article {content-visibility: auto;}
+@import "highlight.js/styles/github-dark.css";
+
+/* article {content-visibility: auto;} */
 article img {width:100%; height:auto;}
 
 /* Poole & Hyde default CSS does not pass today's lighthouse tests */
 
 a {color: #1a6091;}                             /* darken(#268bd2, 15%); */
-.post-date {color: #747474; font-size: 90%;}    /*  darken(#9a9a9a, 15%); */
+.post-date {color: #747474; font-size: 90%;}    /* darken(#9a9a9a, 15%); */
 .related-posts li small {color: #747474;}
 
 .sidebar-nav-item {line-height: 2.75;}
 @media (min-width: 48em) {
   .sidebar-nav-item {line-height: 1.75;}
 }
+
+/* v1.0.0  WCAG2AA sidebar & example-content page */
+.sidebar {color: rgb(255, 255, 255, 0.6);}
+blockquote {color: #666666;}  /* darken(#7a7a7a, 8%) */
+code {color: #b04751;}        /* darken(#bf616a, 8%) */
+
+/* Every base-16 set has to be reset */
+.theme-base-08 .sidebar {background-color: #622526;} /* darken(#ac4142, 20%) */
+.theme-base-08 .content a, .theme-base-08 .related-posts li a:hover {color: #ac4142;} /* Ok */
