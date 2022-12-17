@@ -1,0 +1,12 @@
+{
+  "markdownlint.config": {
+    "MD026": false, // Trailing punctuation in heading
+    "MD033": false, // Inline HTML
+  },
+  "cSpell.words": [
+    "dayjs",
+    "ECBS",
+    "noopener",
+    "robotstxt"
+  ]
+}

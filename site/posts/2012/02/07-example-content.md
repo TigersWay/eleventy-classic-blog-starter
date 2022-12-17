@@ -2,6 +2,7 @@
 title: "Example content"
 date: 2012-02-07T12:00:00.000Z
 tags: [sample, some]
+#spell-checker: disable
 ---
 <div class="message">
   Howdy! This is an example blog post that shows several types of HTML content supported in this theme.
@@ -59,9 +60,9 @@ Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. N
 
 Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
 
-* Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-* Donec id elit non mi porta gravida at eget metus.
-* Nulla vitae elit libero, a pharetra augue.
+- Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+- Donec id elit non mi porta gravida at eget metus.
+- Nulla vitae elit libero, a pharetra augue.
 
 Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
 

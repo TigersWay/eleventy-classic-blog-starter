@@ -2,6 +2,7 @@
 title: "Another post"
 date: 2019-12-17T16:22:00.000+07:00
 tags: [others]
+#spell-checker: disable
 ---
 ![Sunset](federico-faccipieri-wSI8Zmff548-unsplash.jpg)
 
@@ -16,7 +17,6 @@ Neque praesent est. Magna in phasellus volutpat lorem orci. Dolor commodo sed so
 ### Turpis aenean mi
 
 A phasellus perferendis et in eu. Amet vestibulum viverra donec in tincidunt fusce vitae nulla. Turpis lectus metus. Urna quis posuere wisi nec nam urna quam venenatis. Ligula fringilla sit. Turpis dui leo amet lacus quis. Pharetra curabitur nunc erat nulla sapien. In vestibulum feugiat. Mauris mauris in. Feugiat odio in. Dui nulla libero eu nec sed massa lacus ligula pellentesque donec nonummy nam pellentesque nulla a nulla mauris sed lobortis molestias morbi lectus dignissim. Wisi varius eros nec duis est. Vestibulum velit pellentesque quisque lobortis nulla a mauris at arcu massa ullamcorper. Ullamcorper vestibulum id. Consequat facilisis mollis. Egestas arcu malesuada. Sed elit wisi. Lorem diam molestie. Auctor odio turpis nunc malesuada varius natoque nec condimentum.
-
 
 ### Wisi porttitor vivamus accumsan et mauris
 

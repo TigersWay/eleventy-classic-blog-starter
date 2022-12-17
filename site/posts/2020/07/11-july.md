@@ -2,6 +2,7 @@
 title: "July"
 date: 2020-07-11 12:30:00 +7
 tags: [sample, others]
+#spell-checker: disable
 ---
 ## Tempor sollicitudin
 
@@ -43,6 +44,6 @@ Odio commodo arcu. A convallis duis ac ac in purus mi amet. Non vivamus id. Sit 
 
 Blandit sed tortor porta ac class. Scelerisque congue sodales. In consectetuer felis. Amet congue sapien auctor pede id tellus id ligula. At quis rhoncus ultrices lobortis sagittis. Metus et nonummy. Turpis risus facilisi morbi maecenas eros hendrerit eget tristique in sed pellentesque magna tempus condimentum mauris mauris et cras ea tellus. Nostrum lorem pede. Lectus et fusce. Lorem aliquam nibh. Ut scelerisque est. Fermentum massa elit vehicula consectetuer suspendisse. Quisque elit egestas sapien leo wisi vulputate lorem luctus tortor scelerisque consequat sem nonummy tellus. Malesuada vivamus libero.
 
- ## Varius per aptent integer nisl voluptas
+## Varius per aptent integer nisl voluptas
 
 Nunc lobortis id commodo fringilla ante. Et suscipit pharetra. Integer feugiat eget pede sodales nullam. Odio at magna. Lectus suscipit natoque eu distinctio duis. Ut in nec scelerisque cras taciti. Dignissim molestie suspendisse consectetuer.

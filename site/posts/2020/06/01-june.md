@@ -2,9 +2,8 @@
 title: "June"
 date: 2020-06-01T18:57:00.000+07:00
 tags: [some]
+#spell-checker: disable
 ---
-
-
 ## Sit amet sociosqu
 
 Consectetuer cras penatibus mauris suscipit rutrum nec a tincidunt a mauris sagittis varius in quis. Lectus amet elit. Est ligula tortor at elit nec. Vitae eget a. Sapien tellus fringilla. Proin mauris arcu nam iaculis ipsum. Aliquam ut in ornare sed hendrerit. Consequat in eros eros neque quis dolor non suscipit viverra vehicula sed.

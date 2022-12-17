@@ -1,5 +1,6 @@
 ---
 title: "About"
+#spell-checker: disable
 ---
 Lorem ipsum dolor sit amet in ipsum nullam neque aliquam mauris iusto vestibulum tincidunt in convallis etiam sagittis vestibulum sed arcu id massa aliquet curabitur aenean commodo.
 

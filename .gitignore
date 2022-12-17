@@ -1,7 +1,7 @@
 # Windows, IDE & Personal preferences
 desktop.ini
 folder.ico
-.vscode/
+.keep/
 
 # (p)npm
 node_modules/

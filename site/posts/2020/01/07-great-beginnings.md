@@ -2,6 +2,7 @@
 title: "Great beginnings"
 date: 2020-01-07T09:33:00.000+07:00
 tags: [some, others]
+#spell-checker: disable
 ---
 ![Lightnings](micah-tindell-AdOeV-qlAs4-unsplash.jpg)
 

@@ -1,2 +1,4 @@
 site/_themes/hyde/css/hyde.css linguist-detectable=false
 site/_themes/hyde/css/poole.css linguist-detectable=false
+*.md linguist-detectable=true
+*.md linguist-documentation=false
