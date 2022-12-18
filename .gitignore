@@ -10,4 +10,5 @@ pnpm-lock.yaml
 
 # This project specific files & directories
 public/
-site/_themes/hyde/layouts/css/styles.css
+build/
+.env*
