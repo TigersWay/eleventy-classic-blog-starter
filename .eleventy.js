@@ -3,12 +3,9 @@ require('dotenv').config();
 const
   glob = require('fast-glob'),
   hljs = require('highlight.js'),
-  sizeOf = require('image-size'),
 
   projectName = process.env.npm_package_name,
   theme = process.env.npm_package_config_theme;
-// site = require('./site/_data/site.js'),
-// theme = '_themes/' + (process.env.THEME || site.theme);
 
 
 module.exports = (eleventyConfig) => {
@@ -43,26 +40,17 @@ module.exports = (eleventyConfig) => {
     .use(require('markdown-it-attrs'), {
       allowedAttributes: ['id', 'class']
     })
-    // .use(require('markdown-it-eleventy-img'), {
-    //   imgOptions: {
-    //     widths: [720, 1440],
-    //     urlPath: '/images/',
-    //     outputDir: (process.env.NODE_ENV === 'production') ? './build/images' : './public/images'
-    //   },
-    //   // globalAttributes: { sizes: '(min-width:768px) calc(min(calc(100vw - 22rem), 38rem) - 2rem), calc(min(100vw, 38rem) - 2rem)' },
-    //   globalAttributes: { sizes: '(min-width:768px) 720px, 100vw' },
-    //   // globalAttributes: { sizes: '100vw' },
-    //   // renderImage(image, attributes) {
-    //   //   const [Image, options] = image;
-    //   //   const [src, attrs] = attributes;
-    //   //   console.log(src, attrs);
-    //   // },
-    //   resolvePath(src, env) {
-    //     // console.log('Path', src, env.page, env.page.inputPath.split('/').slice(0, -1).concat(src).join('/'));
-    //     return env.page.inputPath.split('/').slice(0, -1).concat(src).join('/');
-    //   }
-    // })
-    ;
+    .use(require('markdown-it-eleventy-img'), {
+      imgOptions: {
+        widths: [720, 1440],
+        urlPath: '/images/',
+        outputDir: (process.env.NODE_ENV === 'production') ? './build/images' : './public/images'
+      },
+      globalAttributes: { sizes: '(min-width:768px) 720px, 100vw' },
+      resolvePath(src, env) {
+        return env.page.inputPath.split('/').slice(0, -1).concat(src).join('/');
+      }
+    });
   eleventyConfig.setLibrary('md', Markdown);
 
   // Engine: Nunjucks
@@ -93,46 +81,11 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addCollection('posts', (collectionApi) => collectionApi.getFilteredByGlob('./site/posts/**/*.md'));
 
 
-  // Transforms
-  // const {suffix} = require('./_11ty/filters/rename.js');
-  // eleventyConfig.addTransform('async-transform-images', async (content, outputPath) => {
-  //   if (outputPath && outputPath.endsWith(".html")) {
-  //     let lazy = 0;
-  //     return content.replaceAll(/(<article .*?data-input-path="(.*?)".*?>)([\s\S]*?)(<\/article>)/gim, (match, openingtag, inputPath, content, closingtag) => {
-  //       // console.log(outputPath, openingtag, inputPath);
-  //       inputPath = inputPath.split('/').slice(2, -1).join('/');
-  //       content = content.replaceAll(/<img src="((?!https?:\/\/).*?.jpg)" alt="(.*?)">/g, (match, src, alt) => {
-  //         const { width, height } = sizeOf(`site/posts/${inputPath}/${src}`);
-
-  //         //         const size = sizeOf(`site/posts/${imagePath}${src}.jpg`)
-  //         //         // return `<picture>
-  //         //         // <source type="image/webp" srcset="${suffix(`/images${imagePath}${src}.webp`, '-330x')} 330w, ${suffix(`/images${imagePath}${src}.webp`, '-720x')} 720w, ${suffix(`/images${imagePath}${src}.webp`, '-330x@2x')} 2x, ${suffix(`/images${imagePath}${src}.webp`, '-330x@3x')} 3x">
-  //         //         // <img src="${suffix(`/images${imagePath}${src}.jpg`, '-720x')}" alt="${alt}"${lazy++ ? ' loading="lazy"' : ''} width="1920" height="1080">
-  //         //         // </picture>`
-  //         //         return `<img src="${suffix(`/images${imagePath}${src}.jpg`, '-720x')}" `
-  //         //           +`srcset="${suffix(`/images${imagePath}${src}.jpg`, '-360x')} 360w, ${suffix(`/images${imagePath}${src}.jpg`, '-720x')} 720w, ${suffix(`/images${imagePath}${src}.jpg`, '-1080x')} 1080w, ${suffix(`/images${imagePath}${src}.jpg`, '-1440x')} 1440w"
-  //         //           sizes="(min-width:768px) calc(min(calc(100vw - 22rem), 38rem) - 2rem), calc(min(100vw, 38rem) - 2rem)"
-  //         //           alt="${alt}"${lazy++ ? ' loading="lazy"' : ''} width="${size.width}" height="${size.height}">`;
-  //         return `<img src="${process.env.CLOUDINARY_CDN_URL}/f_auto,q_40,w_720/${projectName}/${inputPath}/${src}" alt="${alt}" width="${width}" height="${height}">`;
-  //       });
-  //       return `${openingtag}${content}${closingtag}`;
-  //     });
-  //   }
-  //   return content;
-  // });
-
+  // Passthrough
   eleventyConfig.addPassthroughCopy({ 'site/static': '.' });
   eleventyConfig.addPassthroughCopy({ [`site/_themes/${theme}/static`]: '.' });
   eleventyConfig.addPassthroughCopy({ 'node_modules/@fontsource/{abril-fatface,pt-sans}/files/{abril-fatface,pt-sans}-latin-{400,700}*.woff2': 'css/files' });
   eleventyConfig.setServerPassthroughCopyBehavior("copy");
-
-  if (process.env.NODE_ENV === 'production') {
-
-
-  }
-
-  // eleventyConfig.addWatchTarget(`site/${theme}/css`);
-  // eleventyConfig.setWatchThrottleWaitTime(300);
 
 
   return {
