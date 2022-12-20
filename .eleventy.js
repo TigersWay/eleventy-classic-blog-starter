@@ -46,7 +46,7 @@ module.exports = (eleventyConfig) => {
         urlPath: '/images/',
         outputDir: (process.env.NODE_ENV === 'production') ? './build/images' : './public/images'
       },
-      globalAttributes: { sizes: '(min-width:768px) 720px, 100vw' },
+      globalAttributes: { sizes: '(min-width: 1340px) 720px, (min-width: 1040px) calc(85.71vw - 411px), (min-width: 940px) calc(100vw - 480px), (min-width: 780px) calc(100vw - 384px), calc(98.26vw - 27px)' }, // RespImageLint
       resolvePath(src, env) {
         return env.page.inputPath.split('/').slice(0, -1).concat(src).join('/');
       }
