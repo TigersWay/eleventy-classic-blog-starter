@@ -10,6 +10,7 @@
     "csso",
     "dayjs",
     "ECBS",
+    "lstrip",
     "noopener",
     "robotstxt"
   ]
