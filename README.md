@@ -13,8 +13,8 @@ Of course, a very opinionated one, and probably forever, a work in progress!
 
 ## Completely re-written v2
 
-At the end of 2022, Gulp and its plugins seem to be gone; Eleventy has been updated quite a lot.
-It was time to clean-up this template!
+At the end of 2022, Gulp and its plugins seem to be gone, and Eleventy has been updated quite a lot.
+It was time to clean-up this template/starter!
 
 ## Tools
 

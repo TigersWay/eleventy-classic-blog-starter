@@ -8,6 +8,6 @@
   <link rel="shortcut icon" href="/images/favicon-32x32.png" sizes="32x32">
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 
-  <link rel="stylesheet" href="/css/styles.min.css">
+  {% if isProduction %}<style>{% include "../css/styles.min.css" %}</style>{% else %}<link rel="stylesheet" href="/css/styles.min.css">{% endif %}
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/feeds.xml">
 </head>

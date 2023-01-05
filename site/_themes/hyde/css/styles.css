@@ -20,11 +20,11 @@ a {color: #1a6091;}                             /* darken(#268bd2, 15%); */
   .sidebar-nav-item {line-height: 1.75;}
 }
 
-/* v1.0.0  WCAG2AA sidebar & example-content page */
+/* WCAG2AA sidebar & example-content page */
 .sidebar {color: rgb(255, 255, 255, 0.7);}
 blockquote {color: #666666;}  /* darken(#7a7a7a, 8%) */
 code {color: #b04751;}        /* darken(#bf616a, 8%) */
 
-/* Every base-16 set has to be reset */
+/* As base-16 colors had to be reset */
 .theme-base-0b .sidebar {background-color: #690900;}
 .theme-base-0b .content a, .theme-base-0b .related-posts li a:hover {color: #690900;}

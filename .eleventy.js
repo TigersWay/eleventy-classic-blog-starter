@@ -42,16 +42,20 @@ module.exports = (eleventyConfig) => {
     })
     .use(require('markdown-it-eleventy-img'), {
       imgOptions: {
-        widths: [720, 1440],
+        widths: [720, 1080, 1440, 1800],
         urlPath: '/images/',
         outputDir: (process.env.NODE_ENV === 'production') ? './build/images' : './public/images'
       },
-      globalAttributes: { sizes: '(min-width: 1340px) 720px, (min-width: 1040px) calc(85.71vw - 411px), (min-width: 940px) calc(100vw - 480px), (min-width: 780px) calc(100vw - 384px), calc(98.26vw - 27px)' }, // RespImageLint
+      globalAttributes: {
+        loading: 'lazy',
+        sizes: '(min-width: 1340px) 720px, (min-width: 1040px) calc(85.71vw - 411px), (min-width: 940px) calc(100vw - 480px), (min-width: 780px) calc(100vw - 384px), calc(98.26vw - 27px)'
+      },
       resolvePath(src, env) {
         return env.page.inputPath.split('/').slice(0, -1).concat(src).join('/');
       }
     });
   eleventyConfig.setLibrary('md', Markdown);
+
 
   // Engine: Nunjucks
   eleventyConfig.setNunjucksEnvironmentOptions({ trimBlocks: true, lstripBlocks: true });
@@ -81,11 +85,32 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addCollection('posts', (collectionApi) => collectionApi.getFilteredByGlob('./site/posts/**/*.md'));
 
 
+  if (process.env.NODE_ENV === 'production') {
+
+    // Transform : html-minifier
+    eleventyConfig.addTransform('html-minify', async (content, outputPath) => {
+      if (outputPath && /(\.html|\.xml)$/.test(outputPath)) {
+        return require('html-minifier').minify(content, {
+          useShortDoctype: true,
+          minifyJS: true,
+          collapseWhitespace: true,
+          keepClosingSlash: true
+        });
+      }
+      return content;
+    });
+
+  }
+
+
   // Passthrough
-  eleventyConfig.addPassthroughCopy({ 'site/static': '.' });
+  if (process.env.NODE_ENV === 'production') eleventyConfig.addPassthroughCopy({ 'site/static': '.' }); // Only one per destination folder, next is better for dev
   eleventyConfig.addPassthroughCopy({ [`site/_themes/${theme}/static`]: '.' });
   eleventyConfig.addPassthroughCopy({ 'node_modules/@fontsource/{abril-fatface,pt-sans}/files/{abril-fatface,pt-sans}-latin-{400,700}*.woff2': 'css/files' });
-  eleventyConfig.setServerPassthroughCopyBehavior("copy");
+
+
+  // Globals
+  eleventyConfig.addGlobalData('isProduction', process.env.NODE_ENV === 'production');
 
 
   return {
