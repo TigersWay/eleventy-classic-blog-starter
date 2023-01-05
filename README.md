@@ -8,8 +8,6 @@ Of course, a very opinionated one, and probably forever, a work in progress!
 [![Netlify](https://img.shields.io/badge/Netlify--none?style=social&logo=netlify)](https://eleventy-classic-blog-starter.netlify.app/)
 [![Render](https://img.shields.io/badge/Render--none?style=social&logo=eleventy&logoColor=46e3b7)](https://eleventy-classic-blog-starter.onrender.com/)
 [![Vercel](https://img.shields.io/badge/Vercel--none?style=social&logo=vercel)](https://eleventy-classic-blog-starter.vercel.app/)
-[![Surge](https://img.shields.io/badge/Surge--none?style=social&logo=eleventy&logoColor=def1e7)](https://eleventy-classic-blog-starter.surge.sh/)
-[![Hostman](https://img.shields.io/badge/Hostman--0959cd?style=social&logo=eleventy&logoColor=#0e103b)](https://eleventy-classic-blog-starter.hostman.site/)
 
 ## Completely re-written v2
 
