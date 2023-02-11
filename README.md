@@ -26,6 +26,9 @@ It was time to clean-up this template/starter!
 - Nunjucks port - with (nearly) same CSS - based on liquid layouts from [Hyde](https://hyde.getpoole.com/) by [@mdo](https://twitter.com/mdo)
 - Some WCAG contrast corrections
 
+## [static website forms](https://fabform.io)
+You can add a fabform static website form to this website to save form submissions
+
 ## Bug reports, feature requests... or even stars
 
 This is an ongoing project - even if I don't modify it everyday - and every suggestions, contributions or even stars are most welcome!
