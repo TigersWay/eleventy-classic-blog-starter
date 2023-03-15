@@ -107,7 +107,7 @@ module.exports = (eleventyConfig) => {
   if (process.env.NODE_ENV === 'production') eleventyConfig.addPassthroughCopy({ 'site/static': '.' }); // Only one per destination folder, next is better for dev
   eleventyConfig.addPassthroughCopy({ [`site/_themes/${theme}/static`]: '.' });
   eleventyConfig.addPassthroughCopy({ 'node_modules/@fontsource/{abril-fatface,pt-sans}/files/{abril-fatface,pt-sans}-latin-{400,700}*.woff2': 'css/files' });
-
+  eleventyConfig.setServerPassthroughCopyBehavior('passthrough');
 
   // Globals
   eleventyConfig.addGlobalData('isProduction', process.env.NODE_ENV === 'production');

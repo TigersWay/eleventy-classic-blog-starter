@@ -9,7 +9,7 @@
     "highlight-js",
     "hyde-theme"
   ],
-  "version": "2.0.0",
+  "version": "2.0.1",
   "license": "MIT",
   "author": "Ben Michaud <ben@tigersway.net>",
   "repository": {
@@ -32,7 +32,7 @@
     "theme": "hyde"
   },
   "devDependencies": {
-    "@11ty/eleventy": "2.0.0-canary.23",
+    "@11ty/eleventy": "2.0.0",
     "concurrently": "^7.6.0",
     "dayjs": "^1.11.7",
     "dotenv": "^16.0.3",
@@ -41,10 +41,10 @@
     "html-minifier": "^4.0.0",
     "markdown-it": "^13.0.1",
     "markdown-it-attrs": "^4.1.6",
-    "markdown-it-eleventy-img": "^0.9.0",
+    "markdown-it-eleventy-img": "^0.10.0",
     "markdown-it-emoji": "^2.0.2",
     "markdown-it-link-attributes": "^4.0.1",
-    "postcss": "^8.4.20",
+    "postcss": "^8.4.21",
     "postcss-cli": "^10.1.0",
     "postcss-csso": "^6.0.1",
     "postcss-import": "^15.1.0",

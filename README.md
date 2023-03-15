@@ -4,7 +4,12 @@ A starter repository for a "classic-themed" blog website using Eleventy.
 
 Of course, a very opinionated one, and probably forever, a work in progress!
 
-[![Cloudflare](https://img.shields.io/badge/Cloudflare_Pages--none?style=social&logo=cloudflare)](https://eleventy-classic-blog-starter.pages.dev/)
+Dependencies:
+
+- ![@11ty/eleventy](https://img.shields.io/github/package-json/dependency-version/tigersway/eleventy-classic-blog-starter/dev/@11ty/eleventy)
+- ![markdown-it-eleventy-img](https://img.shields.io/github/package-json/dependency-version/tigersway/eleventy-classic-blog-starter/dev/markdown-it-eleventy-img)
+
+Demo: [![Cloudflare](https://img.shields.io/badge/Cloudflare_Pages--none?style=social&logo=cloudflare)](https://eleventy-classic-blog-starter.pages.dev/)
 [![Netlify](https://img.shields.io/badge/Netlify--none?style=social&logo=netlify)](https://eleventy-classic-blog-starter.netlify.app/)
 [![Render](https://img.shields.io/badge/Render--none?style=social&logo=eleventy&logoColor=46e3b7)](https://eleventy-classic-blog-starter.onrender.com/)
 [![Vercel](https://img.shields.io/badge/Vercel--none?style=social&logo=vercel)](https://eleventy-classic-blog-starter.vercel.app/)

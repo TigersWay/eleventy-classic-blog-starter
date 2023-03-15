@@ -1,4 +1,8 @@
 {
+  "npm.scriptExplorerExclude": [
+    "^pre",
+    ":"
+  ],
   "markdownlint.config": {
     "MD026": false, // Trailing punctuation in heading
     "MD033": false, // Inline HTML
