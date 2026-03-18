@@ -37,8 +37,10 @@ This is an ongoing project - even if I don't modify it everyday - and every sugg
 
 ## CHANGELOG
 
-- Cloudflare Pages v3 (2026-0318)
-- 
+- **v2.0.2** (2026-03-18)
+  - Update all dependencies again, "Smart Hosters" are getting newer engines
+  - Cloudflare Pages v3
+
 - **v2.0.0**
   - Update all dependencies
   - eleventy-img plugin through markdown-it-eleventy-img
